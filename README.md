@@ -1,4 +1,4 @@
-# Traffic-Light-System
+# Traffic Light System
 ## Project Description
 
 This is an embedded project accomplished by a team of 5 members. We worked on a traffic light system using Tiva C on GPIO registers. This project's purpose is to create a traffic light control system. There are just two traffic signals in the system. One permits automobiles to travel north to south, while the other allows them to travel east to west. A pedestrian traffic light is located next to each traffic signal. In order to cross the street safely, the pedestrian must touch a button to turn his signal green. Hence, we used 4 red

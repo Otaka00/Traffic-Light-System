@@ -1,0 +1,71 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = D$:\programs\New$ folder\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"D$:\programs\New$ folder\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = D$:\programs\New$ folder\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"D$:\programs\New$ folder\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = D$:\programs\New$ folder\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"D$:\programs\New$ folder\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = D$:\programs\New$ folder\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"D$:\programs\New$ folder\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\DIO.c" -xcl_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.xcl" -macro_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.tmp" -icc_path "D$:\programs\New$ folder\arm\bin\iccarm.exe"
+  flags = "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\DIO.c" -o "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\New$ folder\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.tmp"
+  rspfile_name = D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.xcl.rsp
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\main.c" -xcl_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.xcl" -macro_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.tmp" -icc_path "D$:\programs\New$ folder\arm\bin\iccarm.exe"
+  flags = "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\main.c" -o "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\New$ folder\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\startup_ewarm.c" -xcl_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "D$:\programs\New$ folder\arm\bin\iccarm.exe"
+  flags = "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\startup_ewarm.c" -o "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\New$ folder\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Timer.c" -xcl_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.xcl" -macro_file "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.tmp" -icc_path "D$:\programs\New$ folder\arm\bin\iccarm.exe"
+  flags = "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Timer.c" -o "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\New$ folder\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.tmp"
+  rspfile_name = D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.xcl.rsp
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.pbi : INDEXER D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.xcl |  $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\DIO.c
+  flags = "-out=D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.pbi" -f "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.xcl"
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.pbi : INDEXER D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.xcl |  $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\main.c
+  flags = "-out=D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.pbi" -f "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.xcl"
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.xcl |  $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\startup_ewarm.c
+  flags = "-out=D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.pbi" -f "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.pbi : INDEXER D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.xcl |  $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Timer.c
+  flags = "-out=D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.pbi" -f "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.xcl"
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbw : MAKEBROWSE D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbd
+  flags = "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbd" -output "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbw"
+
+build D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbd : PDBLINK D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.pbi |  $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.pbi $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.pbi $
+D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.pbi
+  flags = -M "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\lab3.pbd" "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\DIO.pbi" "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\main.pbi" "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\startup_ewarm.pbi" "D$:\studying\Senior$ 1\Semester$ 1\Lab8\Lab8\Embedded$ Course\Debug\BrowseInfo\Timer.pbi"
+
